@@ -1,10 +1,3 @@
-
-/**
- * Module dependencies.
- */
-
-var debug = require('debug')('cookie');
-
 /**
  * Set or get cookie `name` with `value` and `options` object.
  *
@@ -98,7 +91,7 @@ function parse(str) {
   var obj = {};
   var pairs = str.split(/ *; */);
   var pair;
-  if ('' == pairs[0]) return obj;
+  if ('' == pairs[0]) return obj; 
   for (var i = 0; i < pairs.length; ++i) {
     pair = pairs[i].split('=');
     obj[decode(pair[0])] = decode(pair[1]);
@@ -114,7 +107,7 @@ function encode(value){
   try {
     return encodeURIComponent(value);
   } catch (e) {
-    debug('error `encode(%o)` - %o', value, e)
+    console.log('error `encode(%o)` - %o', value, e)
   }
 }
 
@@ -126,6 +119,6 @@ function decode(value) {
   try {
     return decodeURIComponent(value);
   } catch (e) {
-    debug('error `decode(%o)` - %o', value, e)
+    console.log('error `decode(%o)` - %o', value, e)
   }
 }
